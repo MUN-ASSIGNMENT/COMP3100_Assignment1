@@ -1,0 +1,44 @@
+{
+    "loans": [
+        {
+            "id": 1,
+            "bookId": 4,
+            "date": "2020-10-01",
+            "client name": "James Bones",
+            "was returned": true,
+            "date of return": "2020-11-01"
+        },
+        {
+            "id": 2,
+            "bookId": 2,
+            "date": "2021-01-20",
+            "client name": "Amanda Samantha",
+            "was returned": false,
+            "date of return": ""
+        },
+        {
+            "id": 3,
+            "bookId": 1,
+            "date": "2020-12-30",
+            "client name": "Timothy Anderson",
+            "was returned": false,
+            "date of return": ""
+        },
+        {
+            "id": 4,
+            "bookId": 5,
+            "date": "2021-01-02",
+            "client name": "Jasmine Tan",
+            "was returned": false,
+            "date of return": ""
+        },
+        {
+            "id": 5,
+            "bookId": 3,
+            "date": "2020-12-15",
+            "client name": "Hammad Abdullah",
+            "was returned": true,
+            "date of return": "2020-12-30"
+        }
+    ]
+}
