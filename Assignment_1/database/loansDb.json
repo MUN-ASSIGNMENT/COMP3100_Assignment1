@@ -3,15 +3,15 @@
         {
             "id": 1,
             "bookId": 4,
-            "date": "2020-10-01",
+            "date": "'Sat Jan 02 2021",
             "client_name": "James Bones",
             "was_returned": true,
-            "date_of_return": "2020-11-01"
+            "date_of_return": "Tue Jan 12 2021"
         },
         {
             "id": 2,
             "bookId": 2,
-            "date": "2021-01-20",
+            "date": "Wed Dec 02 2020",
             "client_name": "Amanda Samantha",
             "was_returned": false,
             "date_of_return": ""
@@ -19,39 +19,15 @@
         {
             "id": 3,
             "bookId": 1,
-            "date": "2020-12-30",
+            "date": "Tue Dec 29 2020",
             "client_name": "Timothy Anderson",
             "was_returned": false,
             "date_of_return": ""
         },
         {
             "id": 4,
-            "bookId": 5,
-            "date": "2021-01-02",
-            "client_name": "Jasmine Tan",
-            "was_returned": false,
-            "date_of_return": ""
-        },
-        {
-            "id": 5,
             "bookId": 3,
-            "date": "2020-12-15",
-            "client_name": "Hammad Abdullah",
-            "was_returned": true,
-            "date_of_return": "2020-12-30"
-        },
-        {
-            "id": 6,
-            "bookId": 4,
-            "date": "2020-11-15",
-            "client_name": "Unique Tom",
-            "was_returned": false,
-            "date_of_return": ""
-        },
-        {
-            "id": 7,
-            "bookId": 3,
-            "date": "2021-01-01",
+            "date": "Fri Jan 29 2021",
             "client_name": "Unicorn",
             "was_returned": false,
             "date_of_return": ""

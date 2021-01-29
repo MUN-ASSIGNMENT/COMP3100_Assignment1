@@ -34,6 +34,13 @@
             "authors": "Dr. Madison Cham",
             "year": "2001",
             "publisher": "Gute Leseorganisation"
+        },
+        {
+            "id": 6,
+            "name": "AWS",
+            "authors": "Mr. Jeff",
+            "year": "2019",
+            "publisher": "AWS"
         }
     ]
 }

@@ -135,10 +135,9 @@ const bookAvailibility = async (req, res) => {
 // Add a loan.
 const addLoan = async (req, res) => {
     const bookId = req.body.bookId;
-    const date = req.body.date;
+    //the date when the loan to database
+    const date = new Date().toDateString();
     const client_name = req.body.client_name;
-    const was_returned = req.body.was_returned;
-    const date_of_return = req.body.date_of_return;
 
     const isValid = true /* await v.validate_fields(id, name, authors, year, publisher); */
 
@@ -161,8 +160,8 @@ const addLoan = async (req, res) => {
                 bookId: bookId,
                 date: date,
                 client_name: client_name,
-                was_returned: was_returned,
-                date_of_return: date_of_return
+                was_returned: false,
+                date_of_return: ""
             };
 
             //add the new book to the books array
@@ -183,7 +182,7 @@ const addLoan = async (req, res) => {
 }
 
 // List all loans that were finished (the book was returned).
-const listAllReturnedLoans = async (req, res) => { 
+const listAllReturnedLoans = async (req, res) => {
     fs.readFile(loansDb, (err, data) => {
         if (err) throw err;
         // convert to object
@@ -206,41 +205,49 @@ const listAllNotReturnedLoans = async (req, res) => {
         let notReturned = loans.filter((loan) => !loan.was_returned);
         res.send(notReturned);
     })
- }
+}
 
 // Update a loan. This operation should control if the book was returned or not.
-const updateLoan = async (req, res) => { }
+const updateLoan = async (req, res) => {
+    const id = parseInt(req.params.id);
+
+    const isValid = true /* await v.validate_fields(id, name, authors, year, publisher); */
+
+    if (isValid) {
+        fs.readFile(loansDb, (err, data) => {
+            if (err) throw err;
+
+            // convert to object
+            const jsonData = JSON.parse(data);
+            loans = jsonData.loans;
+
+            // change the loans data
+            loans.forEach((loan) => {
+                if (parseInt(loan.id) === id) {
+                    loan.was_returned = !loan.was_returned;
+                    loan.date_of_return = (loan.was_returned) ? new Date().toDateString() : '';
+                }
+            })
+
+            // convert to object  
+            const allLoans = {
+                loans
+            }
+
+            //replace the json file with new list of books
+            fs.writeFileSync(loansDb, JSON.stringify(allLoans));
+            res.send('Books are correctly inserted in the file.');
+        });
+    } else {
+        res.send('Error. User not inserted in the file.');
+    }
+}
 
 /**
  * A function to update the information about a given contact.
  * @param {*} req 
  * @param {*} res 
  */
-module.exports.update_contact = (req, res) => {
-    let update_contact = req.body.name + ',' + req.body.email + ',' + req.body.tel + ',' + req.body.address + '\n';
-    fs.readFile(file_name, { encoding: 'utf8', flag: 'r' }, function (err, data) {
-        if (err) throw err;
-        let lines = data.split('\n');
-        file_out = '';
-        let name_to_match = req.params.name;
-        let contact_idx = _find_contact_index(name_to_match, lines);
-        if (contact_idx != null) {
-            for (let index = 0; index < lines.length; index++) {
-                if (index != contact_idx[0]) {
-                    file_out += lines[index] + '\n';
-                } else {
-                    file_out += update_contact;
-                }
-            }
-            fs.writeFileSync(file_name, file_out);
-            res.send('Contact correctly updated.');
-        } else {
-            let msg = 'The user ' + name_to_match + ' was not found.';
-            res.send(msg);
-        }
-
-    });
-};
 
 
 module.exports = { addBook, getBookInfo, listAllBooks, listAllBooksByYear, bookAvailibility, addLoan, listAllReturnedLoans, listAllNotReturnedLoans, updateLoan }
