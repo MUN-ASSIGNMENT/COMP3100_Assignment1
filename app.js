@@ -9,13 +9,13 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.post('/books', library.addBook);
 
 // Retrieve the information of a book by id
-app.get('/books/info/:id', library.getBookInfo);
+app.get('/books/:id', library.getBookInfo);
 
 // List all books, providing the book id and its name.
 app.get('/books', library.listAllBooks);
 
 // List all books by a given year with all its information.
-app.get('/books/:year', library.listAllBooksByYear);
+app.get('/books/year/:year', library.listAllBooksByYear);
 
 // Verify if a book is available.
 app.get('/books/availibility/:id', library.bookAvailibility);

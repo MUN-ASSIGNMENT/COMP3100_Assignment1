@@ -109,11 +109,14 @@ const listAllBooksByYear = async (req, res) => {
         var books = jsonData.books;
 
         let newListBook = books.filter((book) => parseInt(book.year) === year);
-
-        const allBooks = {
-            books: newListBook
+        if (newListBook.length === 0) {
+            res.send("No books with year: " + req.params.id + ".")
+        } else {
+            const allBooks = {
+                books: newListBook
+            }
+            res.send(allBooks);
         }
-        res.send(allBooks);
     });
 }
 

@@ -9,7 +9,7 @@ Name As: web_assignment_1, web_assignment_2, and web_assignment_3.
 
 ### [web_assignment_2](https://github.com/yeeteing/web_assignment_2)
 - Create unit test for the Book API.
-- Store the Book's data in mongo db.
+- Store the Books data in mongo db.
 
 ### [web_assignment_3](https://github.com/yeeteing/web_assignment_3)
 - Developed a responsive web page for Library management with JQuery, ajax, HTML, and CSS. 
@@ -31,7 +31,7 @@ You will need [Postman](https://www.postman.com/downloads/)
 
 
 ### Add a new book. (POST Method)
-- url: 'http://localhost:3000/book'
+- url: http://localhost:3000/books
 - body example: 
 ```
 {
@@ -42,35 +42,35 @@ You will need [Postman](https://www.postman.com/downloads/)
 }
 ```
 
-### Retrieve the information of a book by id. (GET Method)
- - url: 'http://localhost:3000/bookInfo/{id}'
+### Get a book. (GET Method)
+ - url: http://localhost:3000/books/{id}
 
 ### List all books. (GET Method)
- - url: 'http://localhost:3000/listAllBooks'
+ - url: http://localhost:3000/books
 
 ### List all books by a given year (GET Method)
- - url: 'http://localhost:3000/listAllBooks/:year'
+ - url: http://localhost:3000/books/year/{year}
 
 ### Verify if a book is available. (GET Method)
- - url: 'http://localhost:3000/bookAvailibility/{id}'
+ - url: http://localhost:3000/books/availibility/{id}
 
 ### Add a loan. (POST Method)
- - url: 'http://localhost:3000/loan'
+ - url: http://localhost:3000/loans
     - body example:
 ```
 {
     "bookId": 5 ,
     "client_name": "Elver Ethan",
-    "date": "'Sat Jan 02 2021",
+    "date": "Sat Jan 02 2021",
     "was_returned": true,
     "date_of_return": "Mon Jan 5 2021"
 }
 ```
 ### List all loans that was returned (GET Method)
- - url: 'http://localhost:3000/listAllLoans/returned'
+ - url: http://localhost:3000/loans/returned
 
 ### List all loans that was not returned (GET Method)
- - url: 'http://localhost:3000/listAllLoans/noteturned'
+ - url: http://localhost:3000/loans/noteturned
 
 ### Update a loan. This operation should control if the book was returned or not. (PUT Method)
-- url: 'http://localhost:3000/loan/{id}'
+- url: http://localhost:3000/loans/{id}

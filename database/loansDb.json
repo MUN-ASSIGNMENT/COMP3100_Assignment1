@@ -3,7 +3,7 @@
         {
             "id": 1,
             "bookId": 4,
-            "date": "'Sat Jan 02 2021",
+            "date": "Sat Jan 02 2021",
             "client_name": "James Bones",
             "was_returned": true,
             "date_of_return": "Tue Jan 12 2021"
