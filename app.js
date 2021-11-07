@@ -6,31 +6,31 @@ const port = "3000"
 app.use(bodyParser.json()); // support json encoded bodies
 
 // Add a new book.
-app.post('/book', library.addBook);
+app.post('/books', library.addBook);
 
 // Retrieve the information of a book by id
-app.get('/bookInfo/:id', library.getBookInfo);
+app.get('/books/info/:id', library.getBookInfo);
 
 // List all books, providing the book id and its name.
-app.get('/listAllBooks', library.listAllBooks);
+app.get('/books', library.listAllBooks);
 
 // List all books by a given year with all its information.
-app.get('/listAllBooks/:year', library.listAllBooksByYear);
+app.get('/books/:year', library.listAllBooksByYear);
 
 // Verify if a book is available.
-app.get('/bookAvailibility/:id', library.bookAvailibility);
+app.get('/books/availibility/:id', library.bookAvailibility);
 
 // Add a loan.
-app.post('/loan', library.addLoan);
+app.post('/loans', library.addLoan);
 
 // List all loans that were finished (the book was returned).
-app.get('/listAllLoans/returned', library.listAllReturnedLoans);
+app.get('/loans/returned', library.listAllReturnedLoans);
 
 // List all loans that are open (the book was not returned).
-app.get('/listAllLoans/notReturned', library.listAllNotReturnedLoans);
+app.get('/loans/notReturned', library.listAllNotReturnedLoans);
 
 // Update a loan. This operation should control if the book was returned or not.
-app.put('/loan/:id', library.updateLoan);
+app.put('/loans/:id', library.updateLoan);
 
 app.listen(port, () => {
   console.log('Example app listening at http://localhost:%d', port);

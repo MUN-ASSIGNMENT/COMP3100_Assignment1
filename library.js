@@ -1,3 +1,4 @@
+const e = require('express');
 const fs = require('fs');
 const { cpuUsage } = require('process');
 const v = require('./validate-fields');
@@ -86,7 +87,7 @@ const listAllBooks = async (req, res) => {
         var books = jsonData.books;
 
         let newListBook = books.map((book) => {
-            return { id: book.id, name: book.name }
+            return book;
         });
 
         const allBooks = {
@@ -128,7 +129,9 @@ const bookAvailibility = async (req, res) => {
         var loans = jsonData.loans;
 
         let availability = loans.filter((loan) => parseInt(loan.bookId) === bookId && loan.was_returned);
-        res.send(bookInfo);
+        if(availability.length === 0){
+            res.send("Book with id: " + req.params.id + " not available.")
+        } else res.send(availability);
     })
 }
 
