@@ -18,17 +18,16 @@ Name As: web_assignment_1, web_assignment_2, and web_assignment_3.
 ## web_assignment_1 
 Prerequisite: [Node.js(LTS version will be fine) and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-node-js-and-npm)
 
-## Steps:
+## Steps to run:
 1. navigate to "web_assignment_1" root folder
 2. run `npm install`
 3. run `node app.js`
 
-## To communicate with this API
+## To communicate with this API (with Demo)
 You will need [Postman](https://www.postman.com/downloads/)
 
 #### Here is some example on what params, body,     - url needed for each purpose. 
-*!Note! typing error might occur, please double check yourself!*
-
+*!Note! This example run server on port 3000. If you run in different port, make sure you modified the url accordingly!*
 
 ### Add a new book. (POST Method)
 - url: http://localhost:3000/books
@@ -41,18 +40,27 @@ You will need [Postman](https://www.postman.com/downloads/)
     "publisher": "testPublisher"
 }
 ```
+![Create book](./readme_assets/CreateBook.gif)
 
 ### Get a book. (GET Method)
  - url: http://localhost:3000/books/{id}
 
+![Get a book](./readme_assets/GetABook.gif)
+
 ### List all books. (GET Method)
  - url: http://localhost:3000/books
+
+![List all books](./readme_assets/GetBooks.gif)
 
 ### List all books by a given year (GET Method)
  - url: http://localhost:3000/books/year/{year}
 
+![List books by year](./readme_assets/ListBooksYear.gif)
+
 ### Verify if a book is available. (GET Method)
  - url: http://localhost:3000/books/availibility/{id}
+
+![Verify book availibility](./readme_assets/GetAvailibilityBooks.gif)
 
 ### Add a loan. (POST Method)
  - url: http://localhost:3000/loans
@@ -66,11 +74,19 @@ You will need [Postman](https://www.postman.com/downloads/)
     "date_of_return": "Mon Jan 5 2021"
 }
 ```
+![Create Loan](./readme_assets/CreateLoan.gif)
+
 ### List all loans that was returned (GET Method)
  - url: http://localhost:3000/loans/returned
+
+![List returned loans](./readme_assets/ReturnedLoans.gif)
 
 ### List all loans that was not returned (GET Method)
  - url: http://localhost:3000/loans/noteturned
 
+![List not returned loans](./readme_assets/NotReturnedLoans.gif)
+
 ### Update a loan. This operation should control if the book was returned or not. (PUT Method)
 - url: http://localhost:3000/loans/{id}
+
+![Update loan return or not](./readme_assets/UpdateLoan.gif)
